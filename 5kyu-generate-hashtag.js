@@ -17,3 +17,16 @@ Examples
 
 */
 
+const str = process.argv[2];
+
+function generateHashtag(str) {
+  const string = str
+    ?.replace(/\s+/g, " ")
+    .replace("#", "")
+    .split(" ")
+    .map((a) => a?.slice(0, 1).toUpperCase() + a?.slice(1))
+    .join("");
+  return string && string.length < 140 ? `#${string}` : false;
+}
+
+console.log(generateHashtag(str));
